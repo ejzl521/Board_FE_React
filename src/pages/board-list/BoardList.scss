@@ -1,0 +1,7 @@
+.board {
+  cursor: pointer;
+  border-bottom: 1px solid #dddddd;
+  &:hover {
+    background: #eeeeee;
+  }
+}

@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import BoardList from "./pages/board-list/BoardList";
+import Container from "react-bootstrap/Container";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import BoardRegister from './pages/board-register/BoardRegister';
+import BoardView from "./pages/board-view/BoardView";
+import BoardEdit from "./pages/board-edit/BoardEdit";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="p-5">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={BoardList}/>
+          <Route path="/add" component={BoardRegister}/>
+          <Route path="/board-view/:id" component={BoardView}></Route>
+          <Route path="/board-edit/:id" component={BoardEdit}></Route>
+        </Switch>
+      </BrowserRouter>
+    </Container>
   );
 }
 
